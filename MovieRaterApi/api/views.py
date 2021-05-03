@@ -10,7 +10,8 @@ from .serializers import MovieSerializer, RatingSerializer, UserSerializer
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    
+    authentication_classes = (TokenAuthentication, )
+    permission_classes = (AllowAny, )
 
 class MovieViewSet(viewsets.ModelViewSet):
     queryset = Movie.objects.all()
